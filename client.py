@@ -92,8 +92,12 @@ class RequestHandler(ObservableResource):
 
     async def render_put(self, path, request):
         log.debug(f'write on {"/".join(path)}')
+        if len(path) == 3 and not self.model.is_resource_writable(path[0], path[1], path[2]):
+            return Message(code=Code.METHOD_NOT_ALLOWED)
+
         message, _decoded = self.handle_write(
             path, request.payload, request.opt.content_format)
+        print(f'message is {message}, _decoded is {_decoded}')
         if message.code == Code.CHANGED:
             self.model.apply(_decoded)
         return message
@@ -106,7 +110,8 @@ class RequestHandler(ObservableResource):
 class Client(resource.Site):
     endpoint = 'python-client'
     binding_mode = 'UQ'
-    lifetime = 86400  # default: 86400
+    #lifetime = 86400  # default: 86400
+    lifetime = 120
     context = None
     rd_resource = None
 

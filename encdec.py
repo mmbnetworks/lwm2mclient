@@ -77,11 +77,16 @@ class TlvEncoder(object):
         if not model.is_resource_multi_instance(obj, inst, res):
             if model.is_resource_readable(obj, inst, res):
                 # single resource queries are returned as TEXT (plain)
-                _r = model.resource(obj, inst, res)
-                _payload = str(_r).encode()
+                # _r = model.resource(obj, inst, res)
+                # _payload = str(_r).encode()
+                _payload = bytearray()
+                _payload.extend(TlvEncoder._resource_to_tlv(
+                    model, obj, inst, res))
                 logging.debug(
                     f'encode_resource(): {hexdump(_payload, result="return")}')
-                return Message(code=Code.CONTENT, payload=_payload, content_format=MediaType.TEXT.value)
+
+                #return Message(code=Code.CONTENT, payload=_payload, content_format=MediaType.TEXT.value)
+                return Message(code=Code.CONTENT, payload=_payload, content_format=MediaType.TLV.value)
             else:
                 return Message(code=Code.METHOD_NOT_ALLOWED)
         else:

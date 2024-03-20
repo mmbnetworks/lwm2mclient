@@ -781,7 +781,7 @@
         "operations": "R",
         "instancetype": "single",
         "mandatory": true,
-        "type": "string",
+        "type": "float",
         "range": "",
         "units": "Deg",
         "description": ""
@@ -799,11 +799,11 @@
       },
       "3": {
         "id": 3,
-        "name": "Uncertainty",
+        "name": "Radius",
         "operations": "R",
         "instancetype": "single",
         "mandatory": false,
-        "type": "string",
+        "type": "float",
         "range": "",
         "units": "m",
         "description": ""
@@ -829,6 +829,17 @@
         "range": "0-6",
         "units": "",
         "description": ""
+      },
+      "6": {
+	"id": 6,
+	"name": "Speed",
+	"operations": "R",
+	"instancetype": "single",
+	"mandatory": false,
+	"type": "float",
+	"range": "",
+	"units": "m/s",
+	"description": ""
       }
     }
   },
@@ -1064,6 +1075,114 @@
         "instancetype": "single",
         "mandatory": true,
         "type": "boolean",
+        "range": "",
+        "units": "",
+        "description": ""
+      }
+    }
+  },
+  "32769": {
+    "name": "Anuncio da Rede",
+    "id": 32769,
+    "instancetype": "single",
+    "mandatory": true,
+    "description": "",
+    "resourcedefs": {
+      "0": {
+        "id": 0,
+        "name": "Endereço MAC",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": false,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "1": {
+        "id": 1,
+        "name": "Serial",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "string",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "2": {
+        "id": 2,
+        "name": "Fabricante",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "3": {
+        "id": 3,
+        "name": "Tipo de Dispositivo",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "4": {
+        "id": 4,
+        "name": "Hora Inicio",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "5": {
+        "id": 5,
+        "name": "Hora conexao",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "6": {
+        "id": 6,
+        "name": "PARENT_IPV6_PREFERRED",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "7": {
+        "id": 7,
+        "name": "PARENT_IPV6_ALTERNATIVE",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
+        "range": "",
+        "units": "",
+        "description": ""
+      },
+      "8": {
+        "id": 8,
+        "name": "DEVICE IPV6",
+        "operations": "R",
+        "instancetype": "single",
+        "mandatory": true,
+        "type": "opaque",
         "range": "",
         "units": "",
         "description": ""

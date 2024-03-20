@@ -77,6 +77,10 @@ class ClientModel(object):
         _ops = self.definition[obj]['resourcedefs'][str(res)]['operations']
         return False if _ops == 'NONE' else 'R' in _ops
 
+    def is_resource_writable(self, obj, inst, res):
+        _ops = self.definition[obj]['resourcedefs'][str(res)]['operations']
+        return False if _ops == 'NONE' else 'W' in _ops
+
     def is_resource_executable(self, obj, inst, res):
         _ops = self.definition[obj]['resourcedefs'][str(res)]['operations']
         return False if _ops == 'NONE' else 'E' in _ops
